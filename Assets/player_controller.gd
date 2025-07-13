@@ -17,7 +17,7 @@ var _cameraRotation : Vector3
 
 func _input(event):
 	if event.is_action_pressed("exit"):
-		get_tree().quit()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -40,7 +40,7 @@ func update_camera(delta):
 	_tiltInput = 0.0
 	
 func _unhandled_input(event: InputEvent):
-	_mouseInput = event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
+	_mouseInput = event is InputEventMouseMotion
 	if _mouseInput:
 		_rotationInput = -event.relative.x * MouseSensitivity
 		_tiltInput = -event.relative.y * MouseSensitivity
