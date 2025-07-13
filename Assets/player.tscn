@@ -101,7 +101,6 @@ script = ExtResource("1_tpd1a")
 CameraController = NodePath("CameraController/Camera3D")
 AnimationPlayer3d = NodePath("AnimationPlayer")
 CrouchShapecast = NodePath("ShapeCast3D")
-ToggleCrouch = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

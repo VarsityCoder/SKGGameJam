@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmt1xoppf47kw"]
+[gd_scene load_steps=6 format=3 uid="uid://cmt1xoppf47kw"]
 
 [ext_resource type="PackedScene" uid="uid://q3s2u6nsveh1" path="res://Assets/player.tscn" id="1_8xii8"]
+[ext_resource type="PackedScene" uid="uid://du7nd54qu03a5" path="res://Levels/room_a.tscn" id="2_k0okc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gppdf"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -20,11 +21,7 @@ glow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k0okc")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Starting Room" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(50, 1, 50)
@@ -32,7 +29,17 @@ size = Vector3(50, 1, 50)
 [node name="Player" parent="." instance=ExtResource("1_8xii8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.1, 0)
-use_collision = true
-size = Vector3(5, 1, 5)
+[node name="RoomA" parent="." instance=ExtResource("2_k0okc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="RoomA2" parent="." instance=ExtResource("2_k0okc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 1, 0)
+
+[node name="RoomA5" parent="." instance=ExtResource("2_k0okc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -90)
+
+[node name="RoomA4" parent="." instance=ExtResource("2_k0okc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 90)
+
+[node name="RoomA3" parent="." instance=ExtResource("2_k0okc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 1, 0)
