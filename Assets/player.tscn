@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://q3s2u6nsveh1"]
+[gd_scene load_steps=14 format=3 uid="uid://q3s2u6nsveh1"]
 
 [ext_resource type="Script" uid="uid://ckkhxf1ny0ltd" path="res://Scripts/player_controller.gd" id="1_tpd1a"]
 [ext_resource type="Script" uid="uid://c2liuop58t6fi" path="res://Scripts/reticle.gd" id="2_chitn"]
 [ext_resource type="Script" uid="uid://fouqatf247qk" path="res://Scripts/state_machine.gd" id="3_x2ivp"]
 [ext_resource type="Script" uid="uid://dqlvgwi66ujr" path="res://Scripts/idle_player_state.gd" id="4_v6vah"]
 [ext_resource type="Script" uid="uid://ckacfc8n4sp4d" path="res://Scripts/walking_player_state.gd" id="5_4eguo"]
+[ext_resource type="Script" uid="uid://b7ubdg6a2ux4e" path="res://Scripts/sprinting_player_state.gd" id="6_iv8i7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vc4ur"]
 
@@ -183,5 +184,9 @@ script = ExtResource("4_v6vah")
 
 [node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("5_4eguo")
+
+[node name="SprintingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("6_iv8i7")
+metadata/_custom_type_script = "uid://8n0o3x80cj2w"
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
