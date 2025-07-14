@@ -38,6 +38,7 @@ func _input(event):
 		
 		
 func _ready():
+	Global.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_speed = SPEED_DEFAULT
 	CrouchShapecast.add_exception($".")
