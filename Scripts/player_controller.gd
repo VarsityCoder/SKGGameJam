@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var SPEED_DEFAULT = 5.0
 @export var JUMP_VELOCITY = 4.5
 @export var SPEED_CROUCH : float = 2.0
+@export var SPEED_SPRINTING : float = 10.0
 
 var _mouseInput : bool = false
 var _rotationInput : float
