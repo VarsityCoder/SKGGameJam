@@ -1,6 +1,6 @@
 class_name SprintingPlayerState
 
-extends State
+extends PlayerMovementState
 
 @export var TopAnimSpeed : float = 1.6
 

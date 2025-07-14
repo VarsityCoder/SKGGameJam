@@ -1,6 +1,6 @@
 class_name WalkingPlayerState
 
-extends State
+extends PlayerMovementState
 
 func enter() -> void:
 	Global.player._speed = Global.player.SPEED_DEFAULT
