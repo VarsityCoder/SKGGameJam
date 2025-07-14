@@ -104,6 +104,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("CameraController", "AnimationPlayer3d", "CrouchShapecast")]
 script = ExtResource("1_tpd1a")
+JUMP_VELOCITY = 8.0
 CameraController = NodePath("CameraController/Camera3D")
 AnimationPlayer3d = NodePath("AnimationPlayer")
 CrouchShapecast = NodePath("ShapeCast3D")
