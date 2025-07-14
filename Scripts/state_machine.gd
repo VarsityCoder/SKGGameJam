@@ -12,6 +12,7 @@ func _ready() -> void:
 			child.transition.connect(on_child_transition)
 		else:
 			push_warning("State machine contains incompatible child node")
+	await owner.ready
 	CurrentState.enter() 
 
 func _process(delta: float) -> void:
