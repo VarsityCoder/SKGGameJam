@@ -462,3 +462,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
 light_color = Color(1, 0.129412, 0.0941176, 1)
 light_energy = 16.0
 light_volumetric_fog_energy = 16.0
+omni_range = 300.0
