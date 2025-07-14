@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://q3s2u6nsveh1"]
+[gd_scene load_steps=13 format=3 uid="uid://q3s2u6nsveh1"]
 
 [ext_resource type="Script" uid="uid://ckkhxf1ny0ltd" path="res://Scripts/player_controller.gd" id="1_tpd1a"]
 [ext_resource type="Script" uid="uid://c2liuop58t6fi" path="res://Scripts/reticle.gd" id="2_chitn"]
+[ext_resource type="Script" uid="uid://fouqatf247qk" path="res://Scripts/state_machine.gd" id="3_x2ivp"]
+[ext_resource type="Script" uid="uid://dqlvgwi66ujr" path="res://Scripts/idle_player_state.gd" id="4_v6vah"]
+[ext_resource type="Script" uid="uid://ckacfc8n4sp4d" path="res://Scripts/walking_player_state.gd" id="5_4eguo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vc4ur"]
 
@@ -170,5 +173,15 @@ width = 2.0
 [node name="Left" type="Line2D" parent="UserInterface/Reticle"]
 points = PackedVector2Array(-5, 0, -15, 0)
 width = 2.0
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CurrentState")]
+script = ExtResource("3_x2ivp")
+CurrentState = NodePath("IdlePlayerState")
+
+[node name="IdlePlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_v6vah")
+
+[node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("5_4eguo")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
