@@ -15,7 +15,7 @@ var _cameraRotation : Vector3
 var _isCrouching : bool = false
 var _speed : float
 
-@export_range(5, 10, 0.1) var CrouchSpeed : float = 7.0
+@export_range(1, 10, 0.1) var CrouchSpeed : float = 2.0
 @export var MouseSensitivity : float = 0.5
 @export var TiltLowerLimit := deg_to_rad(-90.0)
 @export var TileUpperLimit := deg_to_rad(90.0)
@@ -88,6 +88,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and _isCrouching == false:
 		velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_released("jump"):
+		if velocity.y > 0:
+			velocity.y = velocity.y / 2.0
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
