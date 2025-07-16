@@ -5,6 +5,7 @@ class_name Player extends CharacterBody3D
 @export var JUMP_VELOCITY = 4.5
 @export var SPEED_CROUCH : float = 2.0
 @export var SPEED_SPRINTING : float = 10.0
+@export var interact_distance : float = 2.0
 
 var _mouseInput : bool = false
 var _rotationInput : float
@@ -14,6 +15,7 @@ var _playerRotation : Vector3
 var _cameraRotation : Vector3
 var _isCrouching : bool = false
 var _speed : float
+var interact_cast_result
 
 @export_range(1, 10, 0.1) var CrouchSpeed : float = 2.0
 @export var MouseSensitivity : float = 0.5
@@ -79,11 +81,11 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	interact_cast()
 	
 	update_camera(delta)
 	if Input.is_action_just_pressed("interact"):
 		interact()
-	
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and _isCrouching == false:
@@ -134,7 +136,12 @@ func set_movement_speed(state : String):
 		"crouching":
 			_speed = SPEED_CROUCH
 
-func interact() -> void:
+
+
+func test_raycast(position: Vector3) -> void:
+	print(position)
+
+func interact_cast() -> void:
 	var camera = CameraController
 	var spaceState = camera.get_world_3d().direct_space_state
 	var screenCenter = get_viewport().size / 2
@@ -143,8 +150,15 @@ func interact() -> void:
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_bodies = true
 	var result = spaceState.intersect_ray(query)
-	if result:
-		test_raycast(result.get("position"))
+	var current_cast_result = result.get("collider")
+	if current_cast_result != interact_cast_result:
+		if interact_cast_result and interact_cast_result.has_user_signal("unfocused"):
+			interact_cast_result.emit_signal("unfocused")
+		interact_cast_result = current_cast_result
+		if interact_cast_result and interact_cast_result.has_user_signal("focused"):
+			interact_cast_result.emit_signal("focused")
+	
 
-func test_raycast(position: Vector3) -> void:
-	print(position)
+func interact() -> void:
+	if interact_cast_result and interact_cast_result.has_user_signal("interacted"):
+		interact_cast_result.emit_signal("interacted")
