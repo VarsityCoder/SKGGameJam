@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmt1xoppf47kw"]
+[gd_scene load_steps=7 format=3 uid="uid://cmt1xoppf47kw"]
 
 [ext_resource type="PackedScene" uid="uid://q3s2u6nsveh1" path="res://Assets/player.tscn" id="1_8xii8"]
 [ext_resource type="PackedScene" uid="uid://du7nd54qu03a5" path="res://Levels/room_a.tscn" id="2_k0okc"]
+[ext_resource type="PackedScene" uid="uid://cupuk8unwns6r" path="res://Assets/robot.tscn" id="3_6x3q2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gppdf"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -28,6 +29,7 @@ size = Vector3(50, 1, 50)
 
 [node name="Player" parent="." instance=ExtResource("1_8xii8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+interact_distance = 5.0
 
 [node name="RoomA" parent="." instance=ExtResource("2_k0okc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -43,3 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 90)
 
 [node name="RoomA3" parent="." instance=ExtResource("2_k0okc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 1, 0)
+
+[node name="Robot" parent="." instance=ExtResource("3_6x3q2")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 1, 2)
