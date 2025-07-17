@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://q3s2u6nsveh1"]
+[gd_scene load_steps=19 format=3 uid="uid://q3s2u6nsveh1"]
 
 [ext_resource type="Script" uid="uid://ckkhxf1ny0ltd" path="res://Scripts/player_controller.gd" id="1_tpd1a"]
 [ext_resource type="Script" uid="uid://c2liuop58t6fi" path="res://Scripts/reticle.gd" id="2_chitn"]
 [ext_resource type="Script" uid="uid://diiks0wh7j0xq" path="res://Scripts/interaction_raycast.gd" id="2_shybq"]
 [ext_resource type="Script" uid="uid://fouqatf247qk" path="res://Scripts/state_machine.gd" id="3_x2ivp"]
+[ext_resource type="Script" uid="uid://7py04avp0qs4" path="res://Scripts/context_component.gd" id="4_so5c3"]
 [ext_resource type="Script" uid="uid://dqlvgwi66ujr" path="res://Scripts/idle_player_state.gd" id="4_v6vah"]
 [ext_resource type="Script" uid="uid://ckacfc8n4sp4d" path="res://Scripts/walking_player_state.gd" id="5_4eguo"]
+[ext_resource type="Texture2D" uid="uid://byok08xbyoncf" path="res://Assets/kenney_input-prompts_1.4/Keyboard & Mouse/Default/keyboard_e.png" id="5_a1ayj"]
 [ext_resource type="Script" uid="uid://b7ubdg6a2ux4e" path="res://Scripts/sprinting_player_state.gd" id="6_iv8i7"]
 [ext_resource type="Script" uid="uid://8n0o3x80cj2w" path="res://Scripts/state.gd" id="7_yp1ys"]
 
@@ -103,6 +105,9 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tpd1a"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_a1ayj"]
+font_size = 32
+
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("CameraController", "AnimationPlayer3d", "CrouchShapecast")]
 script = ExtResource("1_tpd1a")
 JUMP_VELOCITY = 5.0
@@ -128,7 +133,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 visible = false
 
 [node name="InteractionRaycast" type="RayCast3D" parent="CameraController/Camera3D"]
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -4)
 hit_back_faces = false
 script = ExtResource("2_shybq")
 
@@ -183,6 +188,30 @@ width = 2.0
 [node name="Left" type="Line2D" parent="UserInterface/Reticle"]
 points = PackedVector2Array(-5, 0, -15, 0)
 width = 2.0
+
+[node name="ContextComponent" type="CenterContainer" parent="UserInterface" node_paths=PackedStringArray("icon", "context")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_so5c3")
+icon = NodePath("HBoxContainer/TextureRect")
+context = NodePath("HBoxContainer/Label")
+default_icon = ExtResource("5_a1ayj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/ContextComponent"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/ContextComponent/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UserInterface/ContextComponent/HBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_a1ayj")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CurrentState")]
 script = ExtResource("3_x2ivp")
