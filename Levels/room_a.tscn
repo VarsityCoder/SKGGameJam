@@ -488,6 +488,7 @@ shape = SubResource("ConcavePolygonShape3D_tv78r")
 [node name="InteractionComponent" type="Node" parent="Doors/Door" node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_opg7s")
 mesh = NodePath("../Door")
+context = "Open Door"
 metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
 
 [node name="DoorComponent" type="Node" parent="Doors/Door"]
@@ -513,6 +514,7 @@ shape = SubResource("ConcavePolygonShape3D_tv78r")
 [node name="InteractionComponent" type="Node" parent="Doors/Door2" node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_opg7s")
 mesh = NodePath("../Door")
+context = "Open Door"
 metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
 
 [node name="DoorComponent" type="Node" parent="Doors/Door2"]
@@ -538,6 +540,7 @@ shape = SubResource("ConcavePolygonShape3D_tv78r")
 [node name="InteractionComponent" type="Node" parent="Doors/Door3" node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_opg7s")
 mesh = NodePath("../Door")
+context = "Open Door"
 metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
 
 [node name="DoorComponent" type="Node" parent="Doors/Door3"]
@@ -563,6 +566,7 @@ shape = SubResource("ConcavePolygonShape3D_tv78r")
 [node name="InteractionComponent" type="Node" parent="Doors/Door4" node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_opg7s")
 mesh = NodePath("../Door")
+context = "Open Door"
 metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
 
 [node name="DoorComponent" type="Node" parent="Doors/Door4"]
