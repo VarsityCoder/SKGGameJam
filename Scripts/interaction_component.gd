@@ -12,10 +12,6 @@ func _ready() -> void:
 	connect_parent()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func connect_parent() -> void:
 	parent.add_user_signal("focused")
 	parent.add_user_signal("unfocused")

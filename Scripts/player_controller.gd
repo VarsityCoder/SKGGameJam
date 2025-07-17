@@ -81,11 +81,8 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	interact_cast()
 	
 	update_camera(delta)
-	if Input.is_action_just_pressed("interact"):
-		interact()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and _isCrouching == false:
@@ -135,30 +132,3 @@ func set_movement_speed(state : String):
 			_speed = SPEED_DEFAULT
 		"crouching":
 			_speed = SPEED_CROUCH
-
-
-
-func test_raycast(position: Vector3) -> void:
-	print(position)
-
-func interact_cast() -> void:
-	var camera = CameraController
-	var spaceState = camera.get_world_3d().direct_space_state
-	var screenCenter = get_viewport().size / 2
-	var origin = camera.project_ray_origin(screenCenter)
-	var end = origin + camera.project_local_ray_normal(screenCenter) * 1000
-	var query = PhysicsRayQueryParameters3D.create(origin, end)
-	query.collide_with_bodies = true
-	var result = spaceState.intersect_ray(query)
-	var current_cast_result = result.get("collider")
-	if current_cast_result != interact_cast_result:
-		if interact_cast_result and interact_cast_result.has_user_signal("unfocused"):
-			interact_cast_result.emit_signal("unfocused")
-		interact_cast_result = current_cast_result
-		if interact_cast_result and interact_cast_result.has_user_signal("focused"):
-			interact_cast_result.emit_signal("focused")
-	
-
-func interact() -> void:
-	if interact_cast_result and interact_cast_result.has_user_signal("interacted"):
-		interact_cast_result.emit_signal("interacted")
