@@ -22,14 +22,9 @@ glow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k0okc")
 
-[node name="Starting Room" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-use_collision = true
-size = Vector3(50, 1, 50)
-
 [node name="Player" parent="." instance=ExtResource("1_8xii8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-interact_distance = 5.0
+JUMP_VELOCITY = 6.0
 
 [node name="RoomA" parent="." instance=ExtResource("2_k0okc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -47,4 +42,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 90)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 1, 0)
 
 [node name="Robot" parent="." instance=ExtResource("3_6x3q2")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 1, 2)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -2, 1, 0)
