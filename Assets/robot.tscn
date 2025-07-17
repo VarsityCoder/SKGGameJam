@@ -18,4 +18,5 @@ shape = SubResource("ConvexPolygonShape3D_t8jvn")
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("2_t8jvn")
 mesh = NodePath("../Character-h")
+context = "Pickup"
 metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
