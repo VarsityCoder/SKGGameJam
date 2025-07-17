@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://du7nd54qu03a5"]
+[gd_scene load_steps=12 format=3 uid="uid://du7nd54qu03a5"]
 
 [ext_resource type="ArrayMesh" uid="uid://d08spndeuhihg" path="res://Assets/kenney_conveyor-kit/Models/OBJ format/floor-large.obj" id="1_p32t4"]
 [ext_resource type="ArrayMesh" uid="uid://hu01ta7m0nam" path="res://Assets/kenney_conveyor-kit/Models/OBJ format/structure-window-wide.obj" id="2_11vle"]
 [ext_resource type="ArrayMesh" uid="uid://c1rnw0nlsmxtv" path="res://Assets/kenney_conveyor-kit/Models/OBJ format/structure-doorway-wide.obj" id="3_3jhpj"]
+[ext_resource type="ArrayMesh" uid="uid://dv1d0ttvxhru3" path="res://Assets/kenney_conveyor-kit/Models/OBJ format/door.obj" id="4_ucrbu"]
+[ext_resource type="Script" uid="uid://ctx7wk4kpx7c4" path="res://Scripts/interaction_component.gd" id="5_opg7s"]
+[ext_resource type="Script" uid="uid://b3a1dil8xrjio" path="res://Scripts/door_component.gd" id="6_ulqvg"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p32t4"]
 data = PackedVector3Array(1, 0, 1, -1, 0, -1, 1, 0, -1, -1, 0, -1, 1, 0, 1, -1, 0, 1, 1, 0, 1, -1, 0, -1, 1, 0, -1, -1, 0, -1, 1, 0, 1, -1, 0, 1)
@@ -12,6 +15,11 @@ data = PackedVector3Array(1, 3, 1.5, -1, 3, 0.5, 1, 3, 0.5, -1, 3, 0.5, 1, 3, 1.
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ucrbu"]
 data = PackedVector3Array(-0.9, 0, 0.3, -0.9, 1.6, 1.5, -0.9, 1.6, 0.3, -0.9, 1.6, 1.5, -0.9, 0, 0.3, -0.9, 0, 1.5, 1, 0, 0.3, 1, 1.6, 0.6, 1, 1.6, 0.3, 1, 1.6, 0.6, 1, 0, 0.3, 1, 0, 1.5, 1, 1.6, 0.6, 1, 0, 1.5, 1, 1.6, 1.5, 0.9, 1.6, 0.3, 0.9, 0, 1.5, 0.9, 0, 0.3, 0.9, 0, 1.5, 0.9, 1.6, 0.3, 0.9, 1.6, 1.5, 1, 1.6, 0.3, 0.9, 1.7, 0.6, 0.9, 1.7, 0.3, 0.9, 1.7, 0.6, 1, 1.6, 0.3, 1, 1.6, 0.6, 1, 1.6, 1.5, 0.9, 1.7, 0.6, 1, 1.6, 0.6, 0.9, 1.7, 0.6, 1, 1.6, 1.5, 0.9, 1.7, 1.5, 0.9, 1.6, 0.3, -0.9, 1.6, 1.5, 0.9, 1.6, 1.5, -0.9, 1.6, 1.5, 0.9, 1.6, 0.3, -0.9, 1.6, 0.3, -1, 1.6, 0.3, -1, 0, 1.5, -1, 0, 0.3, -1, 0, 1.5, -1, 1.6, 0.3, -1, 1.6, 0.6, -1, 0, 1.5, -1, 1.6, 0.6, -1, 1.6, 1.5, 1, 3, 1.5, -1, 3, 0.5, 1, 3, 0.5, -1, 3, 0.5, 1, 3, 1.5, -1, 3, 1.5, 1, 2.7, 0.6, -1, 2.8, 0.6, -1, 2.7, 0.6, -1, 2.8, 0.6, 1, 2.7, 0.6, 1, 2.8, 0.6, -0.9, 0, 0.3, -1, 1.6, 0.3, -1, 0, 0.3, -1, 1.6, 0.3, -0.9, 0, 0.3, -0.9, 1.6, 0.3, -1, 1.6, 0.3, -0.9, 1.6, 0.3, -0.9, 1.7, 0.3, -0.9, 1.6, 0.3, 0.9, 1.7, 0.3, -0.9, 1.7, 0.3, -0.9, 1.6, 0.3, 1, 1.6, 0.3, 0.9, 1.7, 0.3, 0.9, 1.6, 0.3, 1, 1.6, 0.3, -0.9, 1.6, 0.3, 0.9, 0, 0.3, 1, 1.6, 0.3, 0.9, 1.6, 0.3, 1, 1.6, 0.3, 0.9, 0, 0.3, 1, 0, 0.3, -0.9, 1.7, 0.3, -1, 1.6, 0.6, -1, 1.6, 0.3, -1, 1.6, 0.6, -0.9, 1.7, 0.3, -0.9, 1.7, 0.6, -0.9, 1.7, 0.6, -1, 1.6, 1.5, -1, 1.6, 0.6, -1, 1.6, 1.5, -0.9, 1.7, 0.6, -0.9, 1.7, 1.5, 1, 2.8, 0.5, -1, 2.8, 0.6, 1, 2.8, 0.6, -1, 2.8, 0.6, 1, 2.8, 0.5, -1, 2.8, 0.5, 0.9, 1.7, 0.6, -0.9, 1.7, 0.3, 0.9, 1.7, 0.3, -0.9, 1.7, 0.3, 0.9, 1.7, 0.6, -0.9, 1.7, 0.6, 0.9, 1.7, 0.6, -0.9, 1.7, 1.5, -0.9, 1.7, 0.6, -0.9, 1.7, 1.5, 0.9, 1.7, 0.6, 0.9, 1.7, 1.5, 1, 2.8, 0.5, -1, 3, 0.5, -1, 2.8, 0.5, -1, 3, 0.5, 1, 2.8, 0.5, 1, 3, 0.5, 0.9, 0, 1.5, 1, 1.6, 1.5, 1, 0, 1.5, 1, 1.6, 1.5, 0.9, 0, 1.5, 0.9, 1.6, 1.5, 1, 1.6, 1.5, 0.9, 1.6, 1.5, -0.9, 1.6, 1.5, 1, 1.6, 1.5, -0.9, 1.6, 1.5, 0.9, 1.7, 1.5, -0.9, 1.6, 1.5, -0.9, 1.7, 1.5, 0.9, 1.7, 1.5, -0.9, 1.6, 1.5, -1, 1.6, 1.5, -0.9, 1.7, 1.5, -0.9, 0, 1.5, -1, 1.6, 1.5, -0.9, 1.6, 1.5, -1, 1.6, 1.5, -0.9, 0, 1.5, -1, 0, 1.5, -0.9, 1.7, 0.6, -1, 2.7, 0.6, -1, 1.6, 0.6, -1, 2.7, 0.6, -0.9, 1.7, 0.6, 0.9, 1.7, 0.6, 0.9, 1.7, 0.6, 1, 2.7, 0.6, -1, 2.7, 0.6, 1, 2.7, 0.6, 0.9, 1.7, 0.6, 1, 1.6, 0.6, 1, 0, 1.5, -1, 0, -0.5, 1, 0, -0.5, -1, 0, -0.5, 1, 0, 1.5, -1, 0, 1.5, -0.9, 0, 0.3, -0.9, 1.6, 1.5, -0.9, 1.6, 0.3, -0.9, 1.6, 1.5, -0.9, 0, 0.3, -0.9, 0, 1.5, 1, 0, 0.3, 1, 1.6, 0.6, 1, 1.6, 0.3, 1, 1.6, 0.6, 1, 0, 0.3, 1, 0, 1.5, 1, 1.6, 0.6, 1, 0, 1.5, 1, 1.6, 1.5, 0.9, 1.6, 0.3, 0.9, 0, 1.5, 0.9, 0, 0.3, 0.9, 0, 1.5, 0.9, 1.6, 0.3, 0.9, 1.6, 1.5, 1, 1.6, 0.3, 0.9, 1.7, 0.6, 0.9, 1.7, 0.3, 0.9, 1.7, 0.6, 1, 1.6, 0.3, 1, 1.6, 0.6, 1, 1.6, 1.5, 0.9, 1.7, 0.6, 1, 1.6, 0.6, 0.9, 1.7, 0.6, 1, 1.6, 1.5, 0.9, 1.7, 1.5, 0.9, 1.6, 0.3, -0.9, 1.6, 1.5, 0.9, 1.6, 1.5, -0.9, 1.6, 1.5, 0.9, 1.6, 0.3, -0.9, 1.6, 0.3, -1, 1.6, 0.3, -1, 0, 1.5, -1, 0, 0.3, -1, 0, 1.5, -1, 1.6, 0.3, -1, 1.6, 0.6, -1, 0, 1.5, -1, 1.6, 0.6, -1, 1.6, 1.5, 1, 3, 1.5, -1, 3, 0.5, 1, 3, 0.5, -1, 3, 0.5, 1, 3, 1.5, -1, 3, 1.5, 1, 2.7, 0.6, -1, 2.8, 0.6, -1, 2.7, 0.6, -1, 2.8, 0.6, 1, 2.7, 0.6, 1, 2.8, 0.6, -0.9, 0, 0.3, -1, 1.6, 0.3, -1, 0, 0.3, -1, 1.6, 0.3, -0.9, 0, 0.3, -0.9, 1.6, 0.3, -1, 1.6, 0.3, -0.9, 1.6, 0.3, -0.9, 1.7, 0.3, -0.9, 1.6, 0.3, 0.9, 1.7, 0.3, -0.9, 1.7, 0.3, -0.9, 1.6, 0.3, 1, 1.6, 0.3, 0.9, 1.7, 0.3, 0.9, 1.6, 0.3, 1, 1.6, 0.3, -0.9, 1.6, 0.3, 0.9, 0, 0.3, 1, 1.6, 0.3, 0.9, 1.6, 0.3, 1, 1.6, 0.3, 0.9, 0, 0.3, 1, 0, 0.3, -0.9, 1.7, 0.3, -1, 1.6, 0.6, -1, 1.6, 0.3, -1, 1.6, 0.6, -0.9, 1.7, 0.3, -0.9, 1.7, 0.6, -0.9, 1.7, 0.6, -1, 1.6, 1.5, -1, 1.6, 0.6, -1, 1.6, 1.5, -0.9, 1.7, 0.6, -0.9, 1.7, 1.5, 1, 2.8, 0.5, -1, 2.8, 0.6, 1, 2.8, 0.6, -1, 2.8, 0.6, 1, 2.8, 0.5, -1, 2.8, 0.5, 0.9, 1.7, 0.6, -0.9, 1.7, 0.3, 0.9, 1.7, 0.3, -0.9, 1.7, 0.3, 0.9, 1.7, 0.6, -0.9, 1.7, 0.6, 0.9, 1.7, 0.6, -0.9, 1.7, 1.5, -0.9, 1.7, 0.6, -0.9, 1.7, 1.5, 0.9, 1.7, 0.6, 0.9, 1.7, 1.5, 1, 2.8, 0.5, -1, 3, 0.5, -1, 2.8, 0.5, -1, 3, 0.5, 1, 2.8, 0.5, 1, 3, 0.5, 0.9, 0, 1.5, 1, 1.6, 1.5, 1, 0, 1.5, 1, 1.6, 1.5, 0.9, 0, 1.5, 0.9, 1.6, 1.5, 1, 1.6, 1.5, 0.9, 1.6, 1.5, -0.9, 1.6, 1.5, 1, 1.6, 1.5, -0.9, 1.6, 1.5, 0.9, 1.7, 1.5, -0.9, 1.6, 1.5, -0.9, 1.7, 1.5, 0.9, 1.7, 1.5, -0.9, 1.6, 1.5, -1, 1.6, 1.5, -0.9, 1.7, 1.5, -0.9, 0, 1.5, -1, 1.6, 1.5, -0.9, 1.6, 1.5, -1, 1.6, 1.5, -0.9, 0, 1.5, -1, 0, 1.5, -0.9, 1.7, 0.6, -1, 2.7, 0.6, -1, 1.6, 0.6, -1, 2.7, 0.6, -0.9, 1.7, 0.6, 0.9, 1.7, 0.6, 0.9, 1.7, 0.6, 1, 2.7, 0.6, -1, 2.7, 0.6, 1, 2.7, 0.6, 0.9, 1.7, 0.6, 1, 1.6, 0.6, 1, 0, 1.5, -1, 0, -0.5, 1, 0, -0.5, -1, 0, -0.5, 1, 0, 1.5, -1, 0, 1.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tv78r"]
+data = PackedVector3Array(0.3, 0.75, -0.05, 0.3, 1.5, 0, 0.3, 0.75, 0, 0.3, 0.75, -0.05, 0.3, 1.5, -0.1, 0.3, 1.5, 0, 0.3, 1.5, -0.1, 0.3, 0.75, -0.05, 0.3, 0.65, -0.05, 0.3, 0.65, -0.05, 0.3, 0.1, -0.1, 0.3, 1.5, -0.1, 0.3, 0.1, -0.1, 0.3, 0.65, -0.05, 0.3, 0.1, 0, 0.3, 0.1, 0, 0.3, 0.65, -0.05, 0.3, 0.65, 0, -0.3, 0.1, -0.1, -0.3, 1.5, 0, -0.3, 1.5, -0.1, -0.3, 1.5, 0, -0.3, 0.1, -0.1, -0.3, 0.75, -0.05, -0.3, 1.5, 0, -0.3, 0.75, -0.05, -0.3, 0.75, 0, -0.3, 0.1, -0.1, -0.3, 0.65, -0.05, -0.3, 0.75, -0.05, -0.3, 0.65, -0.05, -0.3, 0.1, -0.1, -0.3, 0.1, 0, -0.3, 0.65, -0.05, -0.3, 0.1, 0, -0.3, 0.65, 0, 0.3, 0.1, 0, -0.3, 0.1, -0.1, 0.3, 0.1, -0.1, -0.3, 0.1, -0.1, 0.3, 0.1, 0, -0.3, 0.1, 0, 0.4, 0, -0.1, -0.4, 0, 0.1, 0.4, 0, 0.1, -0.4, 0, 0.1, 0.4, 0, -0.1, -0.4, 0, -0.1, 0.4, 0, -0.1, 0.4, 1.6, 0.1, 0.4, 1.6, -0.1, 0.4, 1.6, 0.1, 0.4, 0, -0.1, 0.4, 0, 0.1, 0.4, 1.6, 0.1, -0.4, 1.6, -0.1, 0.4, 1.6, -0.1, -0.4, 1.6, -0.1, 0.4, 1.6, 0.1, -0.4, 1.6, 0.1, 0.3, 1.5, -0.1, -0.3, 1.5, 0, 0.3, 1.5, 0, -0.3, 1.5, 0, 0.3, 1.5, -0.1, -0.3, 1.5, -0.1, -0.4, 0, 0.1, 0.4, 1.6, 0.1, 0.4, 0, 0.1, 0.4, 1.6, 0.1, -0.4, 0, 0.1, -0.4, 1.6, 0.1, -0.4, 1.6, -0.1, -0.4, 0, 0.1, -0.4, 0, -0.1, -0.4, 0, 0.1, -0.4, 1.6, -0.1, -0.4, 1.6, 0.1, -0.25, 0.8, 0, -0.3, 0.75, 0, 0.3, 0.75, 0, -0.3, 0.75, 0, -0.25, 0.8, 0, -0.3, 1.5, 0, 0.3, 0.75, 0, 0.25, 0.8, 0, -0.25, 0.8, 0, -0.3, 1.5, 0, -0.25, 0.8, 0, -0.25, 1.45, 0, 0.25, 0.8, 0, 0.3, 0.75, 0, 0.3, 1.5, 0, -0.3, 1.5, 0, -0.25, 1.45, 0, 0.25, 1.45, 0, 0.25, 0.8, 0, 0.3, 1.5, 0, 0.25, 1.45, 0, 0.25, 1.45, 0, 0.3, 1.5, 0, -0.3, 1.5, 0, -0.4, 1.6, -0.1, -0.3, 0.1, -0.1, -0.3, 1.5, -0.1, -0.4, 1.6, -0.1, -0.3, 1.5, -0.1, 0.3, 1.5, -0.1, -0.4, 0, -0.1, -0.3, 0.1, -0.1, -0.4, 1.6, -0.1, 0.3, 1.5, -0.1, 0.4, 1.6, -0.1, -0.4, 1.6, -0.1, -0.3, 0.1, -0.1, -0.4, 0, -0.1, 0.4, 0, -0.1, 0.3, 0.1, -0.1, 0.4, 1.6, -0.1, 0.3, 1.5, -0.1, 0.4, 0, -0.1, 0.3, 0.1, -0.1, -0.3, 0.1, -0.1, 0.3, 0.1, -0.1, 0.4, 0, -0.1, 0.4, 1.6, -0.1, 0.3, 0.65, -0.05, -0.3, 0.65, 0, 0.3, 0.65, 0, -0.3, 0.65, 0, 0.3, 0.65, -0.05, -0.3, 0.65, -0.05, 0.3, 0.65, -0.05, -0.3, 0.75, -0.05, -0.3, 0.65, -0.05, -0.3, 0.75, -0.05, 0.3, 0.65, -0.05, 0.3, 0.75, -0.05, 0.3, 0.75, 0, -0.3, 0.75, -0.05, 0.3, 0.75, -0.05, -0.3, 0.75, -0.05, 0.3, 0.75, 0, -0.3, 0.75, 0, 0.3, 0.1, 0, -0.3, 0.65, 0, -0.3, 0.1, 0, -0.3, 0.65, 0, 0.3, 0.1, 0, 0.3, 0.65, 0, 0.25, 1.45, 0, -0.25, 0.8, 0, 0.25, 0.8, 0, -0.25, 0.8, 0, 0.25, 1.45, 0, -0.25, 1.45, 0)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_opg7s"]
 
 [node name="RoomA" type="Node3D"]
 
@@ -462,4 +470,106 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
 light_color = Color(1, 0.129412, 0.0941176, 1)
 light_energy = 16.0
 light_volumetric_fog_energy = 16.0
-omni_range = 300.0
+omni_range = 25.0
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="Door" type="AnimatableBody3D" parent="Doors"]
+transform = Transform3D(11.1, 0, 0, 0, 11.1, 0, 0, 0, 11.1, 0, -9.6, 25.9)
+
+[node name="Door" type="MeshInstance3D" parent="Doors/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.054054)
+mesh = ExtResource("4_ucrbu")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door"]
+shape = SubResource("ConcavePolygonShape3D_tv78r")
+
+[node name="InteractionComponent" type="Node" parent="Doors/Door" node_paths=PackedStringArray("mesh")]
+script = ExtResource("5_opg7s")
+mesh = NodePath("../Door")
+metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
+
+[node name="DoorComponent" type="Node" parent="Doors/Door"]
+script = ExtResource("6_ulqvg")
+direction = Vector3(0, -10, 0)
+door_size = Vector3(2, 3, 0.1)
+metadata/_custom_type_script = "uid://b3a1dil8xrjio"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Doors/Door"]
+shape = SubResource("SphereShape3D_opg7s")
+
+[node name="Door2" type="AnimatableBody3D" parent="Doors"]
+transform = Transform3D(-4.85196e-07, 0, 11.1, 0, 11.1, 0, -11.1, 0, -4.85196e-07, 25.7, -9.6, 0.699998)
+
+[node name="Door" type="MeshInstance3D" parent="Doors/Door2"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.0272727, 0, 0)
+mesh = ExtResource("4_ucrbu")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door2"]
+shape = SubResource("ConcavePolygonShape3D_tv78r")
+
+[node name="InteractionComponent" type="Node" parent="Doors/Door2" node_paths=PackedStringArray("mesh")]
+script = ExtResource("5_opg7s")
+mesh = NodePath("../Door")
+metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
+
+[node name="DoorComponent" type="Node" parent="Doors/Door2"]
+script = ExtResource("6_ulqvg")
+direction = Vector3(0, -10, 0)
+door_size = Vector3(2, 3, 0.1)
+metadata/_custom_type_script = "uid://b3a1dil8xrjio"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Doors/Door2"]
+shape = SubResource("SphereShape3D_opg7s")
+
+[node name="Door3" type="AnimatableBody3D" parent="Doors"]
+transform = Transform3D(-11.1, 0, -1.67605e-06, 0, 11.1, 0, 1.67605e-06, 0, -11.1, -0.499998, -9.6, -24.8)
+
+[node name="Door" type="MeshInstance3D" parent="Doors/Door3"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.0363636, 0, 0)
+mesh = ExtResource("4_ucrbu")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door3"]
+shape = SubResource("ConcavePolygonShape3D_tv78r")
+
+[node name="InteractionComponent" type="Node" parent="Doors/Door3" node_paths=PackedStringArray("mesh")]
+script = ExtResource("5_opg7s")
+mesh = NodePath("../Door")
+metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
+
+[node name="DoorComponent" type="Node" parent="Doors/Door3"]
+script = ExtResource("6_ulqvg")
+direction = Vector3(0, -10, 0)
+door_size = Vector3(2, 3, 0.1)
+metadata/_custom_type_script = "uid://b3a1dil8xrjio"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Doors/Door3"]
+shape = SubResource("SphereShape3D_opg7s")
+
+[node name="Door4" type="AnimatableBody3D" parent="Doors"]
+transform = Transform3D(2.16125e-06, 0, -11.1, 0, 11.1, 0, 11.1, 0, 2.16125e-06, -25.6, -9.6, 1.4)
+
+[node name="Door" type="MeshInstance3D" parent="Doors/Door4"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.0363636, 0, 0)
+mesh = ExtResource("4_ucrbu")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door4"]
+shape = SubResource("ConcavePolygonShape3D_tv78r")
+
+[node name="InteractionComponent" type="Node" parent="Doors/Door4" node_paths=PackedStringArray("mesh")]
+script = ExtResource("5_opg7s")
+mesh = NodePath("../Door")
+metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
+
+[node name="DoorComponent" type="Node" parent="Doors/Door4"]
+script = ExtResource("6_ulqvg")
+direction = Vector3(0, -10, 0)
+door_size = Vector3(2, 3, 0.1)
+metadata/_custom_type_script = "uid://b3a1dil8xrjio"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Doors/Door4"]
+shape = SubResource("SphereShape3D_opg7s")
