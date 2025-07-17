@@ -1,5 +1,7 @@
 class_name InteractionComponent extends Node
 
+signal player_interacted(object)
+
 @export var mesh : MeshInstance3D
 @export var context : String
 @export var override_icon : bool
@@ -34,7 +36,7 @@ func not_in_range() -> void:
 	Global.ui_context.reset()
 
 func on_interact() -> void:
-	print(parent.name)
+	player_interacted.emit(parent)
 
 func set_default_mesh() -> void:
 	if mesh:
