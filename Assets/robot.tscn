@@ -1,22 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://cupuk8unwns6r"]
+[gd_scene load_steps=5 format=3 uid="uid://cupuk8unwns6r"]
 
 [ext_resource type="ArrayMesh" uid="uid://c256wjkw7stdm" path="res://Assets/kenney_blocky-characters_20/Models/OBJ format/character-h.obj" id="1_fspwv"]
 [ext_resource type="Script" uid="uid://ctx7wk4kpx7c4" path="res://Scripts/interaction_component.gd" id="2_t8jvn"]
+[ext_resource type="Script" uid="uid://dd73rwx3hdxj2" path="res://Scripts/pickup_component.gd" id="3_yskcx"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t8jvn"]
 points = PackedVector3Array(-0.8, 0.799746, -0.3, 0.799843, 0.799746, -0.3, -0.400157, 0, -0.2, -0.8, 0.799746, 0.1, -0.8, 1.89999, -0.3, -0.400157, 1.89999, -0.4, 0.799843, 0.799746, 0.1, 0.399844, 0, -0.2, 0.399844, 1.89999, -0.4, 0.799843, 1.89999, -0.3, -0.400157, 0, 0.2, -0.400157, 1.89999, 0.4, -0.8, 1.89999, 0.1, -0.400157, 2.7, -0.4, 0.399844, 0, 0.2, 0.799843, 1.89999, 0.1, 0.399844, 1.89999, 0.4, 0.399844, 2.7, -0.4, -0.400157, 2.7, 0.4, 0.399844, 2.7, 0.4)
 
-[node name="Robot" type="StaticBody3D"]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
-
-[node name="Character-h" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_fspwv")
+[node name="Robot" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, 1)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 5.96046e-08)
 shape = SubResource("ConvexPolygonShape3D_t8jvn")
+
+[node name="Character-h" type="MeshInstance3D" parent="CollisionShape3D2"]
+mesh = ExtResource("1_fspwv")
+skeleton = NodePath("../..")
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("2_t8jvn")
-mesh = NodePath("../Character-h")
+mesh = NodePath("../CollisionShape3D2/Character-h")
 context = "Pickup"
 metadata/_custom_type_script = "uid://ctx7wk4kpx7c4"
+
+[node name="PickUpComponent" type="Node" parent="InteractionComponent"]
+script = ExtResource("3_yskcx")
+pickup_distance = Vector3(0, 0, -2)
+metadata/_custom_type_script = "uid://dd73rwx3hdxj2"
